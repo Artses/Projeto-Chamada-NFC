@@ -34,7 +34,7 @@
       </div>
     </div>
     </div>
-    <button type="submit" class="btn btn-primary" id="entrar">Entrar</button>
+    <button type="submit" class="btn btn-primary" id="entrar">Entrar</button  >
   </form>
   <script src="login.js"></script>
 

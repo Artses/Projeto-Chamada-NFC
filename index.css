@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+:root {
+    --primary: #11998e;
+    --secondary: #38ef7d;
+    --white: #fff;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffffff;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px transparent;
+}
+
+html,
+body {
+    height: 100% !important;
+    margin: 0 !important;
+}
+
+html body {
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-color: #222222;
+    background: rgb(20, 46, 86) !important;
+    background: linear-gradient(0deg, rgba(20, 46, 86, 1) 0%, rgba(15, 16, 17, 1) 100%) !important;
+}
+
+.form-group{
+    width: 100%;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    text-align: center;
+    
+}
+
+.form__field {
+    font-family: inherit;
+    width: 60%;
+    border: 0;
+    border-bottom: 2px solid var(--white);
+    outline: 0;
+    font-size: 1.3rem;
+    color: var(--white);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: var(--primary);
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    border-width: 2px;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+#form__container{
+    background-color: rgba(55, 60, 66, 0.55);
+    width: 50%;
+    border-radius: 15px;
+    height: 60%;
+}
+#entrar{
+    min-width: 25%;
+    height: 10%;
+    margin-top: 50px;
+    background-color: #1e2947!important;
+    border: #1e2947;
+}
+#showPassword{
+    position: absolute;
+    right: 20%;
+    color: rgb(84, 92, 102);
+}
