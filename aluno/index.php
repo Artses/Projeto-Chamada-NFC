@@ -40,7 +40,7 @@ $linhas = $stmt->rowCount();
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Dados Alunos</a>
+                    <a class="nav-link" href="insertAluno.php">Cadastro Alunos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../escola/cadastroescola.php">Cadastro Escola</a>
@@ -67,7 +67,7 @@ $linhas = $stmt->rowCount();
                                 <tr>
                                     <td><?= $r['alunoID'] ?></td>
                                     <td><?= $r['nome'] ?></td>
-                                    <td><?= $r['status'] ?></td>
+                                    <td><?= $r['presenca'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#deletarModal">
