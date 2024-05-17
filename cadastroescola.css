@@ -1,0 +1,22 @@
+html body {
+    font-family: "Nunito", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #222222;
+    background: rgb(20, 46, 86) !important;
+    background: linear-gradient(0deg, rgba(20, 46, 86, 1) 0%, rgba(15, 16, 17, 1) 100%) !important;
+}
+#nav{
+    position: absolute;
+    top: 0;
+}
+#btn-cadastrar{
+    background-color: #57DE18;
+    color: black;
+    margin: 0 auto;
+}
