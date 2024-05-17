@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="index.php">Dados Alunos</a>
+          <a class="nav-link" href="../aluno/index.php">Dados Alunos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="cadastroescola.php">Cadastro Escola</a>
