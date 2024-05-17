@@ -29,6 +29,17 @@
     </div>
   </nav>
   <div class="container  p-3 mt-5">
+    <?php if (isset($_GET['resposta'])): ?>
+      <?php if ($_GET['resposta'] == 1): ?>
+        <div class="alert alert-success" role="alert">
+          Dado inserido com sucesso!
+        </div>
+      <?php else: ?>
+        <div class="alert alert-danger" role="alert">
+          Erro ao inserir o dado: <?= $_GET['resposta'] ?>
+        </div>
+      <?php endif ?>
+    <?php endif ?>
     <form action="cadastro.php" method="POST">
       <div class="row">
         <div class="form-group col-md-6">
