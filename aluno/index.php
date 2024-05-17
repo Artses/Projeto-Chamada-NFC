@@ -15,6 +15,16 @@ $linhas = $stmt->rowCount();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="index.css">
     <title>Dados Alunos</title>
 
@@ -42,60 +52,64 @@ $linhas = $stmt->rowCount();
     <div class="container">
         <div class="border p-3 border-dark rounded bg-dark">
             <table class="table table-bordered table-dark">
-            <form method='POST' action="delete.php">    
-                <thead>
-                    <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">nome</th>
-                        <th scope="col">status</th>
-                        <th scope="col">email</th>
-                        <th scope="col">password</th>
-                        <th scope="col">status</th>
-                        <th scope="col">button</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if ($linhas): ?>
-                        <?php foreach ($resultado as $r): ?>
-                            <tr>
-                                <td><?= $r['alunoID'] ?></td>
-                                <td><?= $r['nome'] ?></td>
-                                <td><?= $r['status'] ?></td>
-
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else: ?>
+                <form method='POST' action="delete.php">
+                    <thead>
                         <tr>
-                            <td colspan="3">Não há dados</td>
+                            <th scope="col">id</th>
+                            <th scope="col">nome</th>
+                            <th scope="col">status</th>
+                            <th scope="col">Botão</th>
                         </tr>
-                    <?php endif; ?>
-
-                <?php if($linhas):?>
-                    <?php foreach($resultado as $r):?>
-                    <tr>
-                        <td><?= $r['id']?></td>
-                        <td><?= $r['email']?></td>
-                        <td><?= $r['password']?></td>
-                        <td><?= $r['status']?></td>
-                        <td>
-                            <a type="button" class="btn btn-danger" href="delete.php?id=<?=$r['id'];?>">excluir</a>
-                        </td>
-                    </tr>
-                <?php endforeach;?>
-                <?php else:?>
-                    <td colspan="1">Não há dados</td>
-                    <td colspan="1">Não há dados</td>
-                    <td colspan="1">Não há dados</td>
-                    <td colspan="1">Não há dados</td>
-                    <td colspan="1">Botão indisponivel</td>
-                <?php endif;?>
-                </tbody>
+                    </thead>
+                    <tbody>
+                        <?php if ($linhas): ?>
+                            <?php foreach ($resultado as $r): ?>
+                                <tr>
+                                    <td><?= $r['alunoID'] ?></td>
+                                    <td><?= $r['nome'] ?></td>
+                                    <td><?= $r['status'] ?></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#deletarModal">
+                                            Deletar
+                                        </button>
+                                        <div class="modal fade" id="deletarModal" tabindex="-1"
+                                            aria-labelledby="deletarModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="deletarModalLabel">Deletar</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Fechar"></button>
+                                                    </div>
+                                                    <div class="modal-body text-dark">
+                                                        Deseja mesmo deletar? <br>
+                                                        <strong>(Esse processo é irreversível.)</strong>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                        <a type="button" class="btn btn-danger"
+                                                            href="delete.php?id=<?= $r['alunoID']; ?>">Deletar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="4">Não há dados</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
                 </form>
             </table>
-            
+
         </div>
     </div>
-    
+    <script src="modal.js"></script>
 </body>
 
 </html>
