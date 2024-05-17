@@ -42,11 +42,16 @@ $linhas = $stmt->rowCount();
     <div class="container">
         <div class="border p-3 border-dark rounded bg-dark">
             <table class="table table-bordered table-dark">
+            <form method='POST' action="delete.php">    
                 <thead>
                     <tr>
                         <th scope="col">id</th>
                         <th scope="col">nome</th>
                         <th scope="col">status</th>
+                        <th scope="col">email</th>
+                        <th scope="col">password</th>
+                        <th scope="col">status</th>
+                        <th scope="col">button</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,10 +69,33 @@ $linhas = $stmt->rowCount();
                             <td colspan="3">Não há dados</td>
                         </tr>
                     <?php endif; ?>
+
+                <?php if($linhas):?>
+                    <?php foreach($resultado as $r):?>
+                    <tr>
+                        <td><?= $r['id']?></td>
+                        <td><?= $r['email']?></td>
+                        <td><?= $r['password']?></td>
+                        <td><?= $r['status']?></td>
+                        <td>
+                            <a type="button" class="btn btn-danger" href="delete.php?id=<?=$r['id'];?>">excluir</a>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                <?php else:?>
+                    <td colspan="1">Não há dados</td>
+                    <td colspan="1">Não há dados</td>
+                    <td colspan="1">Não há dados</td>
+                    <td colspan="1">Não há dados</td>
+                    <td colspan="1">Botão indisponivel</td>
+                <?php endif;?>
                 </tbody>
+                </form>
             </table>
+            
         </div>
     </div>
+    
 </body>
 
 </html>
