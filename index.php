@@ -39,7 +39,7 @@ include 'conexao.php';
                 <?php if($linhas):?>
                     <?php foreach($resultado as $r):?>
                     <tr>
-                        <td><?= $r['id']?></td>
+                        <td><?= $r['escolaID']?></td>
                         <td><?= $r['email']?></td>
                         <td><?= $r['password']?></td>
                         
