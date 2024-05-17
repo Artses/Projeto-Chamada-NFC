@@ -57,11 +57,13 @@ $linhas = $stmt->rowCount();
 
                 <?php if($linhas):?>
                     <?php foreach($resultado as $r):?>
+
                     <tr>
                         <td><?= $r['id']?></td>
                         <td><?= $r['email']?></td>
                         <td><?= $r['password']?></td>
                         <td><?= $r['status']?></td>
+
                         <td>
                             <a type="button" class="btn btn-danger" href="delete.php?id=<?=$r['id'];?>">excluir</a>
                         </td>
@@ -74,6 +76,7 @@ $linhas = $stmt->rowCount();
                     <td colspan="1">Não há dados</td>
                     <td colspan="1">Botão indisponivel</td>
                 <?php endif;?>
+
                 </tbody>
                 </form>
             </table>
