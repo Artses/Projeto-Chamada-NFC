@@ -33,16 +33,18 @@ include 'conexao.php';
                         <th scope="col">id</th>
                         <th scope="col">email</th>
                         <th scope="col">password</th>
+                        <th scope="col">status</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php if($linhas):?>
                     <?php foreach($resultado as $r):?>
+                        <a type="button" class="btn btn-primary m-2" href="status.php">Primary</a>
                     <tr>
                         <td><?= $r['id']?></td>
                         <td><?= $r['email']?></td>
                         <td><?= $r['password']?></td>
-                        
+                        <td><?= $r['status']?></td>
                     </tr>
                 <?php endforeach;?>
                 <?php else:?>
