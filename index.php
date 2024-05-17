@@ -1,13 +1,11 @@
 <?php
-//Abrir o banco 
 include 'conexao.php';
-//Preparando o comando
-    $sql = "SELECT * FROM escola";
-    $stmt = $pdo->prepare($sql);
-    //Executar o comando
-    $stmt->execute();
-    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $linhas = $stmt->rowCount();
+$sql = "SELECT * FROM escola";
+$stmt = $pdo->prepare($sql);
+//Executar o comando
+$stmt->execute();
+$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$linhas = $stmt->rowCount();
 
 ?>
 <!DOCTYPE html>
@@ -16,14 +14,31 @@ include 'conexao.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>Cadastro de Aluno</title>
-    
+
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent" id="nav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Dados Alunos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cadastroescola.php">Cadastro Escola</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <h1 class="text-center text-white ">Mostrar Alunos</h1>
     <div class="container">
         <div class="border p-3 border-dark rounded bg-dark">
@@ -37,6 +52,7 @@ include 'conexao.php';
                     </tr>
                 </thead>
                 <tbody>
+
                 <?php if($linhas):?>
                     <?php foreach($resultado as $r):?>
                         <a type="button" class="btn btn-primary m-2" href="status.php">Primary</a>
@@ -50,6 +66,7 @@ include 'conexao.php';
                 <?php else:?>
                     <tr><td colspan="3">Não há dados</td></tr>
                 <?php endif;?>
+          
                 </tbody>
             </table>
         </div>

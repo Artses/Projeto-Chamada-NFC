@@ -33,6 +33,11 @@ html body {
     background: linear-gradient(0deg, rgba(20, 46, 86, 1) 0%, rgba(15, 16, 17, 1) 100%) !important;
 }
 
+#nav{
+    position: absolute!important;
+    top: 0!important;
+}
+
 .form-group{
     width: 100%;
 }
