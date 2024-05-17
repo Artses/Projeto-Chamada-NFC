@@ -1,8 +1,7 @@
 <?php
-include 'conexao.php';
-$sql = "SELECT * FROM escola";
+include '../conexao.php';
+$sql = "SELECT * FROM aluno";
 $stmt = $pdo->prepare($sql);
-//Executar o comando
 $stmt->execute();
 $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $linhas = $stmt->rowCount();
@@ -17,7 +16,7 @@ $linhas = $stmt->rowCount();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
-    <title>Cadastro de Aluno</title>
+    <title>Dados Alunos</title>
 
 </head>
 
@@ -34,7 +33,7 @@ $linhas = $stmt->rowCount();
                     <a class="nav-link" href="index.php">Dados Alunos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastroescola.php">Cadastro Escola</a>
+                    <a class="nav-link" href="../escola/cadastroescola.php">Cadastro Escola</a>
                 </li>
             </ul>
         </div>
@@ -47,6 +46,8 @@ $linhas = $stmt->rowCount();
                 <thead>
                     <tr>
                         <th scope="col">id</th>
+                        <th scope="col">nome</th>
+                        <th scope="col">status</th>
                         <th scope="col">email</th>
                         <th scope="col">password</th>
                         <th scope="col">status</th>
@@ -54,6 +55,20 @@ $linhas = $stmt->rowCount();
                     </tr>
                 </thead>
                 <tbody>
+                    <?php if ($linhas): ?>
+                        <?php foreach ($resultado as $r): ?>
+                            <tr>
+                                <td><?= $r['alunoID'] ?></td>
+                                <td><?= $r['nome'] ?></td>
+                                <td><?= $r['status'] ?></td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr>
+                            <td colspan="3">Não há dados</td>
+                        </tr>
+                    <?php endif; ?>
 
                 <?php if($linhas):?>
                     <?php foreach($resultado as $r):?>

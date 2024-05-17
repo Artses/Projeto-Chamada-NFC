@@ -6,10 +6,10 @@ if (!isset($email) || !isset($password)) {
     die('Email and password are required.');
 }
 
-include 'conexao.php';
+include '../conexao.php';
 
 try {
-    $sql = "SELECT * FROM escola WHERE email = :email AND password = :password";
+    $sql = "SELECT * FROM escola WHERE email = :email AND Senha = :password";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':password', $password);
@@ -17,7 +17,7 @@ try {
     $resposta = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($resposta) > 0) {
-        header("location: index.php");
+        header("location: ../aluno/index.php");
     } else {
         header("location: login.php?erro=" . "1");
     }
