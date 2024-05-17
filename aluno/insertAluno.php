@@ -11,6 +11,7 @@
 </head>
 
 <body>
+<h1 class="text-center text-white ">Adicionar Alunos</h1>
   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent" id="nav">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
