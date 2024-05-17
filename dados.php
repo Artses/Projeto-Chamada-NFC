@@ -25,3 +25,4 @@ try {
     $resposta = $e->getMessage();
     var_dump($resposta);
 }
+?>
