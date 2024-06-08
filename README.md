@@ -20,7 +20,7 @@ Execute o programa.<br>
 Aproxime o dispositivo NFC para verificar a compatibilidade com os códigos cadastrados.
 
 # Tecnologias Utilizadas
-PHP<br>
+JavaScript<br>
 NFC Library (exemplo: nfcpy)<br>
 Leitor NFC
 
